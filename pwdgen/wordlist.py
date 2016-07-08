@@ -15,7 +15,6 @@ def get_wordlist_path(url=DEFAULT_WORDLIST):
     if not wordlist_downloaded_path.exists():
         print("\nDownloading wordlist from %s\n" % url)
         download_file(url, wordlist_downloaded_path)
-    print(wordlist_downloaded_path)
     return wordlist_downloaded_path
 
 

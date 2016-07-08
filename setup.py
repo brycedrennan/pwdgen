@@ -27,4 +27,7 @@ setup(
     license='MIT',
     long_description=long_description,
     install_requires=['randomlineaccess==1.04'],
+    entry_points={
+        'console_scripts': ['pwdgen=pwdgen.command_line:main'],
+    }
 )

@@ -1,4 +1,4 @@
-from pwdgen.utils import sample_with_replacement
+from pwdgen.rand import sample_with_replacement
 
 
 def test_sample_with_replacement_performance():

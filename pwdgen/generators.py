@@ -3,7 +3,7 @@ from functools import partial
 
 from randomlineaccess import IndexedOpen
 
-from .utils import sample_with_replacement
+from .rand import sample_with_replacement
 from .wordlist import get_wordlist_path
 
 ASCII_CHARACTERS = string.ascii_letters + string.digits + string.punctuation
