@@ -19,7 +19,7 @@ def main():
     if args.length:
         print(generators[args.type](int(args.length)))
     else:
-        for gen in [password, ascii, alphanumeric, passphrase, numeric]:
+        for gen in [ascii, alphanumeric, passphrase, numeric]:
             print(gen())
 
 
