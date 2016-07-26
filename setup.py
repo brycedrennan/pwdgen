@@ -1,6 +1,10 @@
+import os.path
+import pathlib
 from setuptools import setup
 
-__version__ = open('pwdgen/.version', "rt").read().strip()
+pkg_dir = pathlib.Path(os.path.dirname(__file__))
+version_file = pkg_dir / 'pwdgen' / '.version'
+__version__ = open(str(version_file)).read().strip()
 
 long_description = """
 Quickly generate secure passwords and passphrases.

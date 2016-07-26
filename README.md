@@ -7,5 +7,12 @@ Quickly generate secure passwords and passphrases.
 - 1.6 million wordlist for passphrase generation
 - unicode characters in passwords
 
+## Updating package on pypi
+
+    git tag 1.4
+    git push --tags
+    python setup.py sdist upload -r pypi
+
+
 ## Author
 Bryce Drennan <pwdgen@brycedrennan.com>
