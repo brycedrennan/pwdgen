@@ -1,6 +1,6 @@
 from setuptools import setup
 
-from pwdgen import __version__
+__version__ = open('pwdgen/.version', "rt").read().strip()
 
 long_description = """
 Quickly generate secure passwords and passphrases.
