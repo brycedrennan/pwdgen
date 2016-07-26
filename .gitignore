@@ -43,3 +43,4 @@ Thumbs.db
 .cache
 dist
 MANIFEST
+/pwdgen.egg-info
