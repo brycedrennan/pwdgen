@@ -1,6 +1,6 @@
 from setuptools import setup
 
-__version__ = '1.6'
+__version__ = '1.61'
 
 long_description = """
 Quickly generate secure passwords and passphrases.
@@ -26,7 +26,7 @@ setup(
     ],
     license='MIT',
     long_description=long_description,
-    install_requires=['randomlineaccess==1.04'],
+    install_requires=['randomlineaccess==1.04', 'requests'],
     entry_points={
         'console_scripts': ['pwdgen=pwdgen.command_line:main'],
     }
