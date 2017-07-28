@@ -20,7 +20,9 @@ def main():
         print(generators[args.type](int(args.length)))
     else:
         for gen in [ascii, alphanumeric, passphrase, numeric]:
+            print()
             print(gen())
+        print()
 
 
 if __name__ == '__main__':
