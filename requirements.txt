@@ -1,3 +1,12 @@
-randomlineaccess==1.04
-requests>=2.10.0
-pytest
+# dev requirements
+pytest  # testing
+
+# linters
+pydocstyle
+pylint
+pylama
+pylama_pylint
+tox
+
+# install production dependencies from setup.py
+-e .
