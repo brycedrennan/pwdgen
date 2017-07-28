@@ -10,6 +10,7 @@ DEFAULT_WORDLIST = 'https://github.com/brycedrennan/wordlists/raw/master/wordlis
 
 
 def get_wordlist_path(url=DEFAULT_WORDLIST):
+    print('ran')
     url_hash = hashlib.md5(url.encode('utf8')).hexdigest()
     wordlist_downloaded_path = WORDLISTS_PATH / Path(url_hash + '.txt')
     if not wordlist_downloaded_path.exists():
@@ -27,3 +28,11 @@ def download_file(url, dest_path):
 
         for block in response.iter_content(1024):
             f.write(block)
+
+
+class LazyString(object):
+    def __init__(self, string_generator):
+        self.string_generator = string_generator
+
+    def __str__(self):
+        return self.string_generator()
