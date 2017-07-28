@@ -2,6 +2,12 @@
 
 Quickly generate secure passwords and passphrases.
 
+## Features
+
+ - Uses random.SystemRandom for cryptographicly appropriate randomness
+ - 1.6 million words used for passphrase generation
+ - unicode characters in passwords
+
 ## Installation
 
     pip install pwdgen
@@ -35,13 +41,6 @@ Examples
     >> pwdgen 100 numeric
     9544599056176785657686631468992554760777641106814498586075573461167251798647842791689099710096162233
     
-
-## Features
-
- - Uses random.SystemRandom for cryptographicly appropriate randomness
- - 1.6 million words used for passphrase generation
- - unicode characters in passwords
-
 ## Updating package on pypi
 
     git tag 1.62
