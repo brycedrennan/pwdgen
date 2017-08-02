@@ -1,6 +1,6 @@
 from setuptools import setup
 
-__version__ = '1.62'
+__version__ = '1.63'
 
 long_description = """
 Quickly generate secure passwords and passphrases.
