@@ -46,4 +46,5 @@ MANIFEST
 
 
 .direnv
-/pwdgen.egg-info
+/*.egg-info
+.pytest_cache
