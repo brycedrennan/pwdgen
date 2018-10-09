@@ -9,9 +9,9 @@ from .wordlist import get_wordlist_path
 
 ASCII_CHARACTERS = string.ascii_letters + string.digits + string.punctuation
 ALPHANUMERIC_CHARACTERS = string.ascii_letters + string.digits
-UNICODE_SYMBOLS = u"☺★✰✓ÆÖÛ÷ɣɥΘЖ∭☀☂☃☎☻♫✈❤"
+UNICODE_SYMBOLS = "☺★✰✓ÆÖÛ÷ɣɥΘЖ∭☀☂☃☎☻♫✈❤"
 ALL_CHARACTERS = ASCII_CHARACTERS + UNICODE_SYMBOLS
-_PASSPHRASE_CHARACTERS_TO_REMOVE = {ord(c): None for c in u"'\n\r"}
+_PASSPHRASE_CHARACTERS_TO_REMOVE = {ord(c): None for c in "'\n\r"}
 
 
 def password(length=100, characters=ALL_CHARACTERS, join_char=""):
@@ -20,7 +20,7 @@ def password(length=100, characters=ALL_CHARACTERS, join_char=""):
 
 def passphrase(length=8, wordlist=LazyString(get_wordlist_path)):
     with IndexedOpen(str(wordlist)) as wordlist_file:
-        return password(length, wordlist_file, join_char='-').translate(_PASSPHRASE_CHARACTERS_TO_REMOVE)
+        return password(length, wordlist_file, join_char="-").translate(_PASSPHRASE_CHARACTERS_TO_REMOVE)
 
 
 ascii = partial(password, characters=ASCII_CHARACTERS)
