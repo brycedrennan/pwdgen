@@ -1,6 +1,6 @@
 # Password/Passphrase Generator
 
-[![build status](https://travis-ci.org/brycedrennan/pwdgen.svg)](https://travis-ci.org/brycedrennan/pwdgen)
+[![build status](https://travis-ci.org/brycedrennan/pwdgen.svg?branch=master)](https://travis-ci.org/brycedrennan/pwdgen)
 
 Quickly generate secure passwords and passphrases.
 
@@ -42,12 +42,6 @@ Examples
     <pJOwuTΘ☀]ɣ9★J#EjgSv)'k]l☻*$n*÷-roM"iI\5/b`;R❤,iERZ❤Sg7PMNdÛ*kpz~wBI=qQ|KЖÆ7Ul0Q'F`1-qn✈|?YL\☀~✈|lVD
     >> pwdgen 100 numeric
     9544599056176785657686631468992554760777641106814498586075573461167251798647842791689099710096162233
-    
-## Updating package on pypi
-
-    git tag 1.62
-    git push --tags
-    python setup.py sdist upload -r pypi
 
 ## Author
 Bryce Drennan <pwdgen@brycedrennan.com>
