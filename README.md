@@ -1,5 +1,7 @@
 # Password/Passphrase Generator
 
+[![build status](https://travis-ci.org/brycedrennan/pwdgen.svg)](https://travis-ci.org/brycedrennan/pwdgen)
+
 Quickly generate secure passwords and passphrases.
 
 ## Features
