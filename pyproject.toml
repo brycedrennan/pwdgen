@@ -10,6 +10,6 @@ exclude = '''
   | \.direnv
   | build
   | dist
-  | aresponses\.egg-info
+  | pwdgen\.egg-info
 )/
 '''
