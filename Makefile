@@ -1,11 +1,11 @@
 SHELL := /bin/bash
-python_version = 3.6.6
+python_version = 3.10.6
 venv_prefix = pwdgen
 venv_name = $(venv_prefix)-$(python_version)
 pyenv_instructions=https://github.com/pyenv/pyenv#installation
 pyenv_virt_instructions=https://github.com/pyenv/pyenv-virtualenv#pyenv-virtualenv
 
-init: require_pyenv  ## Setup a dev environment for local development.
+init: ## Setup a dev environment for local development.
 	@pyenv install $(python_version) -s
 	@echo -e "\033[0;32m ✔️  🐍 $(python_version) installed \033[0m"
 	@if ! [ -d "$$(pyenv root)/versions/$(venv_name)" ]; then\
