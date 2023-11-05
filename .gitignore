@@ -11,3 +11,5 @@ build/
 **/.pytest_cache
 .python-version
 .envrc
+target
+/pwdgen.iml
