@@ -1,0 +1,13 @@
+# dev/testing requirements
+pytest
+pytest-asyncio
+pytest-xdist
+pydocstyle
+pylint
+pylava
+pylava-pylint
+coverage
+black
+
+# install production dependencies from setup.py
+-e .

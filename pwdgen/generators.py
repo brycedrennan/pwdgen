@@ -33,15 +33,18 @@ _PASSPHRASE_CHARACTERS_TO_REMOVE = {ord(c): None for c in "'\n\r"}
 
 
 def password(length=100, characters=ALL_CHARACTERS, join_char=""):
+    """Generate a random password of specified length and characters."""
     return join_char.join(sample_with_replacement(characters, length))
 
 
 def passphrase(length=8, wordlist=LazyString(get_wordlist_path)):
+    """Generate a passphrase of given length using words from the given wordlist file."""
     with IndexedOpen(str(wordlist)) as wordlist_file:
         return password(length, wordlist_file, join_char="-").translate(_PASSPHRASE_CHARACTERS_TO_REMOVE)
 
 
 def eff_passphrase(length=8):
+    """Generate an EFF-recommended passphrase of given length."""
     from .eff_wordlist import EFF_WORDS
 
     return password(length, EFF_WORDS, join_char="-")

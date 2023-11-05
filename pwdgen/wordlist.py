@@ -10,6 +10,7 @@ DEFAULT_WORDLIST = "https://github.com/brycedrennan/wordlists/raw/master/wordlis
 
 
 def get_wordlist_path(url=DEFAULT_WORDLIST):
+    """Download and return the path of a wordlist from the given URL."""
     url_hash = hashlib.md5(url.encode("utf8")).hexdigest()
     wordlist_downloaded_path = WORDLISTS_PATH / Path(url_hash + ".txt")
     if not wordlist_downloaded_path.exists():
@@ -19,6 +20,7 @@ def get_wordlist_path(url=DEFAULT_WORDLIST):
 
 
 def download_file(url, dest_path):
+    """Download a file from a given URL and save it to a given destination path."""
     os.makedirs(str(dest_path.parent), exist_ok=True)
     with dest_path.open("wb") as f:
         response = requests.get(url, stream=True)
@@ -30,8 +32,12 @@ def download_file(url, dest_path):
 
 
 class LazyString:
+    """Provide a lazy-evaluated string representation of a generator."""
+
     def __init__(self, string_generator):
+        """Initialize a StringGenerator object with a string generator."""
         self.string_generator = string_generator
 
     def __str__(self):
+        """Return a string representation of the generated string."""
         return str(self.string_generator())
