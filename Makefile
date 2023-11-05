@@ -43,6 +43,9 @@ deploy: autoformat lint test
 	echo 'pypi.org Username: '
 	@read username && twine upload dist/* -u $$username;
 
+requirements:  ## Freeze the requirements.txt file
+	pip-compile setup.py requirements.in --output-file=requirements.txt --upgrade --resolver=backtracking
+
 help: ## Show this help message.
 	@## https://gist.github.com/prwhite/8168133#gistcomment-1716694
 	@echo -e "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)" | sort

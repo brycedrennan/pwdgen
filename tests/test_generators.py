@@ -7,4 +7,5 @@ generators = [password, ascii, alphanumeric, passphrase, numeric, emoji, ascii_l
 
 @pytest.mark.parametrize("generator", generators)
 def test_main(generator):
+    """Run tests for each generator in the generators list."""
     generator()

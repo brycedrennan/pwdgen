@@ -5,7 +5,7 @@ RNG = random.SystemRandom()
 
 
 def sample_with_replacement(population, k):
-    """"
+    """ "
     Return a random sample of size k from the population.
 
     Written a little unintuitively for speed purposes.

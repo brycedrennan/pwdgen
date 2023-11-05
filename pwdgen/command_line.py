@@ -6,6 +6,7 @@ generators = {"password": password, "ascii": ascii, "alphanumeric": alphanumeric
 
 
 def main():
+    """Parse command line arguments and generate a password."""
     parser = argparse.ArgumentParser()
     parser.add_argument("length", nargs="?", default=None)
     parser.add_argument("type", nargs="?", default="ascii")
