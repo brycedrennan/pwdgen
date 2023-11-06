@@ -1,20 +1,28 @@
 SHELL := /bin/bash
-python_version = 3.10.6
+python_version = 3.10.9
 venv_prefix = pwdgen
 venv_name = $(venv_prefix)-$(python_version)
 pyenv_instructions=https://github.com/pyenv/pyenv#installation
 pyenv_virt_instructions=https://github.com/pyenv/pyenv-virtualenv#pyenv-virtualenv
 
 init: ## Setup a dev environment for local development.
-	@pyenv install $(python_version) -s
+	@PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install $(python_version) -s
 	@echo -e "\033[0;32m ✔️  🐍 $(python_version) installed \033[0m"
 	@if ! [ -d "$$(pyenv root)/versions/$(venv_name)" ]; then\
 		pyenv virtualenv $(python_version) $(venv_name);\
 	fi;
 	@pyenv local $(venv_name)
 	@echo -e "\033[0;32m ✔️  🐍 $(venv_name) virtualenv activated \033[0m"
-	pip install --upgrade pip
-	pip install -r requirements.txt --upgrade
+	pip install --upgrade pip pip-tools
+	pip-sync requirements.txt
+
+
+	rustup component add rustfmt
+	rustup component add clippy
+	cargo install cargo-audit
+	cargo install cargo-tarpaulin
+
+
 	@echo -e "\nEnvironment setup! ✨ 🍰 ✨ 🐍 \n\nCopy this path to tell PyCharm where your virtualenv is. You may have to click the refresh button in the pycharm file explorer.\n"
 	@echo -e "\033[0;32m"
 	@pyenv which python
@@ -24,27 +32,31 @@ init: ## Setup a dev environment for local development.
 
 af: autoformat
 autoformat:  ## Run the autoformatter.
-	@black .
+	@cargo fmt
 
 test:  ## Run the tests.
-	@pytest
+	@cargo test
 	@echo -e "The tests pass! ✨ 🍰 ✨"
 
 lint:  ## Run the code linter.
-	@pylava
+	@cargo clippy
 	@echo -e "No linting errors - well done! ✨ 🍰 ✨"
+
+build-binary:
+	cargo build --bin pwdgen --release
+
+build-library:
+	maturin build --features python-extension
 
 deploy: autoformat lint test
 	pip install twine wheel
 	git tag $$(python setup.py -V)
 	git push --tags
-	python setup.py bdist_wheel
-	python setup.py sdist
 	echo 'pypi.org Username: '
 	@read username && twine upload dist/* -u $$username;
 
 requirements:  ## Freeze the requirements.txt file
-	pip-compile setup.py requirements.in --output-file=requirements.txt --upgrade --resolver=backtracking
+	pip-compile requirements.in --output-file=requirements.txt --upgrade --resolver=backtracking
 
 help: ## Show this help message.
 	@## https://gist.github.com/prwhite/8168133#gistcomment-1716694

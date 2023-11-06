@@ -1,13 +1,9 @@
 # dev/testing requirements
 pytest
-pytest-asyncio
-pytest-xdist
-pydocstyle
-pylint
-pylava
-pylava-pylint
-coverage
 black
+ruff
+twine
 
-# install production dependencies from setup.py
--e .
+# rust interface
+maturin
+cffi
