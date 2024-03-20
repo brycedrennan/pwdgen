@@ -8,7 +8,7 @@
     # via -r requirements.in
 astroid==3.0.1
     # via pylint
-black==23.10.1
+black==24.3.0
     # via -r requirements.in
 certifi==2023.7.22
     # via requests
@@ -76,13 +76,9 @@ pytest-asyncio==0.21.1
 pytest-xdist==3.3.1
     # via -r requirements.in
 randomlineaccess==1.4
-    # via
-    #   pwdgen
-    #   pwdgen (setup.py)
+    # via sanitized-package
 requests==2.31.0
-    # via
-    #   pwdgen
-    #   pwdgen (setup.py)
+    # via sanitized-package
 snowballstemmer==2.2.0
     # via pydocstyle
 tomli==2.0.1
